@@ -1,0 +1,74 @@
+<h2>Editing Department</h2>
+<br />
+<form (ngSubmit)="saveDept(deptdata)" #deptForm="ngForm">
+  <table>
+    <tr>
+      <td>
+        <label for="id">Id:</label>
+      </td>
+      <td>
+        <input
+          type="number"
+          id="id"
+          name="id"
+          [(ngModel)]="deptdata.id"
+          required
+          #id="ngModel"
+          readonly
+        />
+      </td>
+      <td>
+        <div *ngIf="id.invalid && (id.dirty || id.touched)" style="color: red">
+          <div *ngIf="id.errors?.['required']">Id cannot be blank</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="name">Enter Department Name:</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          [(ngModel)]="deptdata.name"
+          #name="ngModel"
+        />
+      </td>
+      <td>
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          style="color: red"
+        >
+          <div *ngIf="name.errors?.['required']">Name is required</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="location">Enter Location:</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          [(ngModel)]="deptdata.location"
+          #location="ngModel"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input
+          type="submit"
+          value="Save"
+          [disabled]="!deptForm.valid"
+          class="btn btn-success"
+        />
+      </td>
+    </tr>
+  </table>
+</form>

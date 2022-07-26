@@ -1,0 +1,27 @@
+<div class="container">
+  <h4 class="text-info">Department Listing</h4>
+  <div class="jumbotron">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dept of deptlist">
+          <!-- casing as per INTERFACE -->
+          <td>{{ dept.id }}</td>
+          <td>{{ dept.name }}</td>
+          <td>{{ dept.location }}</td>
+          <td></td>
+          <td>
+            <a [routerLink]="['/find/', dept.id]">Details</a>&nbsp;&nbsp;&nbsp;
+            <a [routerLink]="['/edit/', dept.id]">Edit</a>&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
